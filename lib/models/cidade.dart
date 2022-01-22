@@ -1,24 +1,24 @@
 import 'dart:convert';
 
 class Cidade {
-  final int id_uf;
+  final int idUf;
   final String nome;
   Cidade({
-    required this.id_uf,
+    required this.idUf,
     required this.nome,
   });
 
   //Aqui gera uma cidade, baseado em chave e valor.
   Map<String, dynamic> toMap() {
     return {
-      'id_uf': id_uf,
+      'id_uf': idUf,
       'nome': nome,
     };
   }
 
   factory Cidade.fromMap(Map<String, dynamic> map) {
     return Cidade(
-      id_uf: map['id_uf']?.toInt() ?? '',
+      idUf: map['id_uf']?.toInt() ?? '',
       nome: map['nome'] ?? '',
     );
   }
@@ -30,5 +30,5 @@ class Cidade {
   factory Cidade.fromJson(String source) => Cidade.fromMap(json.decode(source));
 
   @override
-  String toString() => 'Cidade(id_uf: $id_uf, nome: $nome)';
+  String toString() => 'Cidade(id_uf: $idUf, nome: $nome)';
 }

@@ -8,21 +8,15 @@ Future<void> main() async {
   //SELECT CITY + INSERT
   var res = await CityRepository().buscarCity();
 
-  try{
-    for (var insertCity in res) {
-      await mysqlConnection.query('insert into cidade(id_uf, nome) values (?,?)');
-      print(insertCity);
+  try {
+    for (var cityInsert in res) {
+      await mysqlConnection.query('insert into cidade(id, nome) values(?, ?)', [
+        
+      ]);
+      print(cityInsert);
     }
-  } on Exception catch(e) {
-    print('Erro ao inserir Cidade. Error: $e');
+  } on Exception catch (e) {
+    print('Erro ao buscar cidade. $e');
   }
-
   
-
-  // try {
-  //   print('Importação Finalizada!');
-  // } catch (e) {
-  //   print('Erro ao importar. Error: $e');
-  //   mysqlConnection.close();
-  // }
 }
