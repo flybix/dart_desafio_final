@@ -14,7 +14,7 @@ class Estado {
   factory Estado.fromMap(Map<String, dynamic> map) {
     return Estado(
       id: map['id']?.toInt() ?? 0,
-      uf: map['uf'] ?? '',
+      uf: map['sigla'] ?? '',
       nome: map['nome'] ?? '',
     );
   }
@@ -25,7 +25,7 @@ class Estado {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'uf': uf,
+      'sigla': uf,
       'nome': nome,
     };
   }
@@ -34,6 +34,6 @@ class Estado {
   String toJson() => json.encode(toMap());
 
   @override
-  String toString() => 'Estado(id: $id, uf: $uf, nome: $nome)';
+  String toString() => 'Estado(id: $id, sigla: $uf, nome: $nome)';
 
 }
