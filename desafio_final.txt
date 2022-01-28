@@ -1,0 +1,31 @@
+DESAFIO FINAL: (- -)
+=============
+
+Lógica:
+
+1 - Inserir o estado na tabela estado
+2 - Recuperar o id que foi inserido na tabela 
+3 - Recuperar as cidades desse estado.
+4 - inserir na tabela cidade o dados da cidade com o id do estado
+
+
+CRIAÇÃO DAS TABELAS:
+--------------------
+
+CREATE TABLE estado (
+  id int not null primary key auto_increment,
+  uf varchar(2),
+  nome varchar(255)
+);
+
+
+CREATE TABLE cidade (
+  id int not null primary key auto_increment,
+  id_uf int,
+  nome varchar(255),
+   FOREIGN KEY (id_uf)
+      REFERENCES estado(id)
+);​
+
+https://servicodados.ibge.gov.br/api/v1/localidades/estados
+https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/distritos

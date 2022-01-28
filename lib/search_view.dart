@@ -29,11 +29,11 @@ class SearchDesafio {
     var mysqlConn = await database.openConn();
 
     try {
-      var response = await CityRepository().buscarCity(20);
+      var response = await CityRepository().buscarCity(35);
       for (var viewCity in response) {
         await mysqlConn.query(
           'insert into cidade(id_uf, nome) values(?,?)',
-          [viewCity.idUf, viewCity.nome],
+          [20, viewCity.nome],
         );
 
         print('Cidade inserida no Banco de Dados com Sucesso!');
@@ -46,6 +46,6 @@ class SearchDesafio {
 }
 
 void main() {
-  //SearchDesafio().insertBDState();
+  SearchDesafio().insertBDState();
   SearchDesafio().insertBDCity();
 }
